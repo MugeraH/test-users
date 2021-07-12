@@ -2,16 +2,13 @@
   <div class="container">
     <h2>Users</h2>
     <div class="user-container">
-      <div
-        class="user-wrapper"
-        @click="user"
-        v-for="(user, index) in users"
-        :key="index"
-      >
-        <h4>{{ user.name }}</h4>
-        <h5 class="role">Software Devloper</h5>
-        <p>Call me gravity, cause I am down o earth</p>
-        <h5>Mugerahughes@gmail.com</h5>
+      <div class="user-wrapper" v-for="(user, index) in users" :key="index">
+        <div @click="viewUserDetails(user.id)">
+          <h4>{{ user.name }}</h4>
+          <h5 class="role">{{ user.occupation }}</h5>
+          <p>{{ user.bio }}</p>
+          <h5>{{ user.email }}</h5>
+        </div>
       </div>
     </div>
   </div>
@@ -30,9 +27,9 @@ export default {
     },
   },
   methods: {
-    user() {
+    viewUserDetails(id) {
       console.log("home");
-      this.$router.push({ path: "/user" });
+      this.$router.push({ path: `/user/${id}` });
     },
   },
 };
