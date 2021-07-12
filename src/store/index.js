@@ -8,8 +8,8 @@ export default createStore({
     users: [],
   },
   mutations: {
-    setUsers(state, payload) {
-      state.users = payload;
+    setUsers(state, users) {
+      state.users = users;
     },
     updateUser(state, updatedUser) {
       const index = state.users.findIndex((user) => user.id === updatedUser.id);
@@ -31,11 +31,11 @@ export default createStore({
   },
   modules: {},
   getters: {
-    getUsers(state) {
+    allUsers(state) {
       //limit number of users
       let resultList = state.users.slice(0, 20);
       //data has empty values , use filter to return users with a username
-      let results = resultList.filter((item) => item.name.length > 1);
+      let results = state.users.filter((item) => item.name.length > 1);
       return results;
     },
     getUser: (state) => (id) => state.users.find((user) => user.id === id),

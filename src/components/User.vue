@@ -1,5 +1,5 @@
 <template>
-  <div class="user-wrapper" v-for="(user, index) in users" :key="index">
+  <div class="user-wrapper" v-for="(user, index) in allUsers" :key="index">
     <div @click="viewUserDetails(user.id)">
       <h4>{{ user.name }}</h4>
       <h5 class="role">{{ user.occupation }}</h5>
@@ -13,13 +13,10 @@
 import { mapGetters } from "vuex";
 export default {
   name: "User",
-  computed: {
-    users() {
-      return this.$store.getters.getUsers;
-    },
-  },
+  computed: mapGetters(["allUsers"]),
 
   methods: {
+    ...mapGetters(["getUsers"]),
     viewUserDetails(id) {
       this.$router.push({ path: `/user/${id}` });
     },
@@ -47,6 +44,11 @@ export default {
   }
   .role {
     color: rgb(6, 66, 112);
+  }
+
+  @media screen and (max-width: 500px) {
+    width: 80%;
+    background-color: green;
   }
 }
 </style>

@@ -33,7 +33,6 @@ export default {
   computed: {
     user() {
       let id = this.$route.params.id;
-
       return this.getUser()(parseInt(id));
     },
   },
