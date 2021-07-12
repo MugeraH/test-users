@@ -4,12 +4,13 @@
     <div class="user-container">
       <User />
     </div>
+
+    <div class="loader" v-if="!users"></div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /sr
-import User from "./User.vue";
+import User from "../components/User.vue";
 
 export default {
   name: "Home",
@@ -20,11 +21,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+h2 {
+  margin-left: 50px;
+}
 .user-container {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   gap: 2rem;
-
 }
 </style>
