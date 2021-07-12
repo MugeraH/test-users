@@ -1,5 +1,13 @@
 # vuex-test
 
+## Description
+A vue application to demonstarte use of vuex for stae management
+
+
+## Author
+
+[Mugera Hughes](https://github.com/mugerah/)
+
 ## Project setup
 ```
 npm install
@@ -22,3 +30,10 @@ npm run test:unit
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+### License
+
+[MIT License](https://github.com/MugeraH/test-users/blob/main/license)
+
+Copyright (c) 2021
