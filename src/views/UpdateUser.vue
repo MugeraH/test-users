@@ -38,15 +38,7 @@
 import { mapGetters, mapActions } from "vuex";
 export default {
   name: "UpdateUser",
-  data() {
-    return {
-      user: [],
-      name: "",
-      email: "",
-      occupation: "",
-      bio: "",
-    };
-  },
+
   computed: {
     user() {
       let id = this.$route.params.id;
@@ -58,8 +50,10 @@ export default {
   methods: {
     ...mapGetters(["getUser"]),
     ...mapActions(["updateUser"]),
+
     submitForm() {
       this.updateUser(this.user);
+      this.$router.push({ path: `/user/${this.user.id}` });
     },
   },
 };
@@ -85,13 +79,16 @@ export default {
       label {
         font-size: 1.3rem;
         margin: 8px 0;
+        color: rgb(6, 66, 112);
       }
 
       input,
       textarea {
         outline: none;
-
+        border: none;
         padding: 9px;
+        border-bottom: 1px solid rgb(6, 66, 112);
+        background: rgb(196, 196, 196);
       }
       input {
         height: 38px;
@@ -106,12 +103,18 @@ export default {
     button {
       color: #fff;
       background-color: rgb(79, 165, 50);
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: bold;
       margin: 1rem 0;
       padding: 0.7rem 0.5rem;
-      border: none;
+      border: 1px solid #fff;
       outline: none;
+      transition: all 400ms ease;
+      &:hover {
+        color: rgb(79, 165, 50);
+        background-color: #fff;
+        border: 1px solid rgb(79, 165, 50);
+      }
     }
   }
 }

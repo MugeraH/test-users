@@ -18,7 +18,7 @@ export default {};
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 1.7rem;
-  background: rgb(3, 215, 252);
+  background: rgb(6, 66, 112);
   color: rgb(255, 254, 254);
 
   a {

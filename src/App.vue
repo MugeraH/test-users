@@ -12,8 +12,8 @@ export default {
     Navbar,
   },
   mounted() {
-    this.$store.dispatch("setUsers")
-  }
+    this.$store.dispatch("setUsers");
+  },
 };
 </script>
 <style lang="scss">
@@ -36,7 +36,6 @@ body {
 }
 
 .user-container {
- 
   padding: 2.5rem;
   border-radius: 10px;
 }
