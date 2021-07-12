@@ -7,7 +7,7 @@
           Update
         </button>
       </div>
-      <h2 class="username">Username</h2>
+      <h2 class="username">Hughes Mugera</h2>
 
       <span>Bio</span>
       <p class="bio">
@@ -15,7 +15,7 @@
         numquam.
       </p>
       <span>Occupation</span>
-      <p class="ocupation">
+      <p class="occupation">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
         numquam.
       </p>
@@ -32,4 +32,38 @@
 export default {};
 </script>
 
-<style></style>
+<style lang="scss">
+.title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+
+  button {
+    color: #fff;
+    background-color: rgb(3, 215, 252);
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 0.7rem 0.5rem;
+    border: none;
+    outline: none;
+  }
+}
+.username {
+  font-size: 1.5rem;
+  padding: 0.6rem 0;
+}
+span {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0.7rem 0;
+  display: inline-block;
+}
+
+p {
+  font-size: 1.1rem;
+}
+.email,
+.occupation {
+  font-size: 1.1rem;
+}
+</style>

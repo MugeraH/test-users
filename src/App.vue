@@ -23,12 +23,18 @@ export default {
 body {
   font-family: "Roboto", sans-serif;
   line-height: 1.2;
-  background: #b8bab9;
+  background: #ffffff;
 }
 .container {
   max-width: 1300px;
   margin: auto;
   overflow: auto;
   padding: 2.5rem;
+}
+
+.user-container {
+  background: rgb(196, 196, 196);
+  padding: 2.5rem;
+  border-radius: 10px;
 }
 </style>
