@@ -11,18 +11,22 @@ export default createStore({
     setUsers(state, payload) {
       state.users = payload;
     },
-    setUser(state, payload) {
-      state.user = payload;
+    updateUser(state, updatedUser) {
+      const index = state.users.findIndex((user) => user.id === updatedUser.id);
+      if (index !== -1) {
+        state.users.splice(index, 1, updatedUser);
+      }
     },
-    
   },
   actions: {
     setUsers({ commit }) {
-      axios(url).then((response) => commit("setUsers", response.data));
+      axios.get(url).then((response) => commit("setUsers", response.data));
     },
-    updateUser({commit}){
-      axios(`${url}/`)
-    }
+    updateUser({ commit }, updatedUser) {
+      const response = axios.patch(`${url}/${updatedUser.id}`, updatedUser);
+      console.log(response.data);
+      commit("updateUser", response.data);
+    },
   },
   modules: {},
   getters: {

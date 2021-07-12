@@ -3,7 +3,7 @@
     <div class="user-container">
       <div class="title">
         <h2 class="user-title">User</h2>
-        <button @click="this.$router.push({ path: `/update-user/${user.id}` })">
+        <button @click="updateUser(user.id)">
           Update
         </button>
       </div>
@@ -32,55 +32,60 @@ export default {
   data() {
     return {
       user: [],
-     
     };
   },
-  computed: {},
-  mounted() {
-    let id = this.$route.params.id;
-  
-    this.user = this.getUser()(parseInt(id));
- 
-  },
-  methods: {
-    ...mapGetters(["getUser"]),
+  computed: {
+    user() {
+      let id = this.$route.params.id;
+
+      return this.getUser()(parseInt(id));
+    },
   },
 
+  methods: {
+    ...mapGetters(["getUser"]),
+    updateUser(id) {
+      this.$router.push({ path: `/update-user/${id}` });
+    },
+  },
 };
 </script>
 
-<style lang="scss">
-.title {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
+<style lang="scss" scoped>
+.user-container {
+  background: rgb(196, 196, 196);
+  .title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
 
-  button {
-    color: #fff;
-    background-color: rgb(3, 215, 252);
-    font-size: 1.1rem;
-    font-weight: bold;
-    padding: 0.7rem 0.5rem;
-    border: none;
-    outline: none;
+    button {
+      color: #fff;
+      background-color: rgb(3, 215, 252);
+      font-size: 1.1rem;
+      font-weight: bold;
+      padding: 0.7rem 0.5rem;
+      border: none;
+      outline: none;
+    }
   }
-}
-.username {
-  font-size: 1.5rem;
-  padding: 0.6rem 0;
-}
-span {
-  font-size: 1rem;
-  font-weight: bold;
-  margin: 0.7rem 0;
-  display: inline-block;
-}
+  .username {
+    font-size: 1.5rem;
+    padding: 0.6rem 0;
+  }
+  span {
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0.7rem 0;
+    display: inline-block;
+  }
 
-p {
-  font-size: 1.1rem;
-}
-.email,
-.occupation {
-  font-size: 1.1rem;
+  p {
+    font-size: 1.1rem;
+  }
+  .email,
+  .occupation {
+    font-size: 1.1rem;
+  }
 }
 </style>

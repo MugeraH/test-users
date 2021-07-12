@@ -36,7 +36,7 @@ body {
 }
 
 .user-container {
-  background: rgb(196, 196, 196);
+ 
   padding: 2.5rem;
   border-radius: 10px;
 }

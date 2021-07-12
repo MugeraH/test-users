@@ -42,7 +42,7 @@ export default {
   gap: 2rem;
   .user-wrapper {
     width: 350px;
-    background-color: rgb(255, 255, 255);
+    background: rgb(196, 196, 196);
     border-radius: 7px;
     padding: 14px;
     cursor: pointer;

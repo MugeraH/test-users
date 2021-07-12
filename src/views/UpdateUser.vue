@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 export default {
   name: "UpdateUser",
   data() {
@@ -47,18 +47,19 @@ export default {
       bio: "",
     };
   },
-  computed: {},
-  mounted() {
-    let id = this.$route.params.id;
+  computed: {
+    user() {
+      let id = this.$route.params.id;
 
-    this.user = this.getUser()(parseInt(id));
+      return this.getUser()(parseInt(id));
+    },
   },
+
   methods: {
     ...mapGetters(["getUser"]),
+    ...mapActions(["updateUser"]),
     submitForm() {
-      
-
-      console.log(this.user);
+      this.updateUser(this.user);
     },
   },
 };
