@@ -2,32 +2,13 @@
   <div class="container">
     <h2>Users</h2>
     <div class="user-container">
-      <div class="user-wrapper" @click="user">
-        <h4>Hughes Mugera</h4>
-        <h5 class="role">Software Devloper</h5>
-        <p>Call me gravity, cause I am down o earth</p>
-        <h5>Mugerahughes@gmail.com</h5>
-      </div>
-      <div class="user-wrapper" @click="user">
-        <h4>Hughes Mugera</h4>
-        <h5 class="role">Software Devloper</h5>
-        <p>Call me gravity, cause I am down o earth</p>
-        <h5>Mugerahughes@gmail.com</h5>
-      </div>
-      <div class="user-wrapper" @click="user">
-        <h4>Hughes Mugera</h4>
-        <h5 class="role">Software Devloper</h5>
-        <p>Call me gravity, cause I am down o earth</p>
-        <h5>Mugerahughes@gmail.com</h5>
-      </div>
-      <div class="user-wrapper" @click="user">
-        <h4>Hughes Mugera</h4>
-        <h5 class="role">Software Devloper</h5>
-        <p>Call me gravity, cause I am down o earth</p>
-        <h5>Mugerahughes@gmail.com</h5>
-      </div>
-      <div class="user-wrapper" @click="user">
-        <h4>Hughes Mugera</h4>
+      <div
+        class="user-wrapper"
+        @click="user"
+        v-for="(user, index) in users"
+        :key="index"
+      >
+        <h4>{{ user.name }}</h4>
         <h5 class="role">Software Devloper</h5>
         <p>Call me gravity, cause I am down o earth</p>
         <h5>Mugerahughes@gmail.com</h5>
@@ -42,6 +23,12 @@
 export default {
   name: "Home",
   components: {},
+  computed: {
+    users() {
+      // return this.$store.dispatch("setUsers");
+      return this.$store.getters.getUsers;
+    },
+  },
   methods: {
     user() {
       console.log("home");

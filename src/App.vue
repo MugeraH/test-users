@@ -11,6 +11,9 @@ export default {
   components: {
     Navbar,
   },
+  mounted() {
+    this.$store.dispatch("setUsers")
+  }
 };
 </script>
 <style lang="scss">
