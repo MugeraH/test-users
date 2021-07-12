@@ -4,7 +4,7 @@
       <h2>Update User</h2>
 
       <div class="form">
-        <form action="">
+        <form @submit.prevent="submitForm">
           <div class="form-control">
             <label for="username">Username</label>
             <input v-model="user.name" id="username" type="text" required />
@@ -35,23 +35,31 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: "UpdateUser",
   data() {
     return {
       user: [],
-      users: [],
+      name: "",
+      email: "",
+      occupation: "",
+      bio: "",
     };
   },
-
-  methods: {},
+  computed: {},
   mounted() {
     let id = this.$route.params.id;
 
-    this.users = this.$store.getters.getUsers;
+    this.user = this.getUser()(parseInt(id));
+  },
+  methods: {
+    ...mapGetters(["getUser"]),
+    submitForm() {
+      
 
-    let result = this.users.filter((user) => user.id == id);
-    this.user = result[0];
+      console.log(this.user);
+    },
   },
 };
 </script>
@@ -86,7 +94,7 @@ export default {
       }
       input {
         height: 38px;
-        font-size: 1.4rem;
+        font-size: 1.3rem;
       }
       textarea {
         height: 100px;

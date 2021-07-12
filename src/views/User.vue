@@ -26,29 +26,26 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: "User",
   data() {
     return {
       user: [],
-      users: [],
+     
     };
   },
-  // computed: {
-  //   user: [],
-  //   users: [],
-  // },
-  methods: {},
+  computed: {},
   mounted() {
     let id = this.$route.params.id;
-
-    this.users = this.$store.getters.getUsers;
-    
-
-    let result = this.users.filter((user) => user.id == id);
-    this.user = result[0];
   
+    this.user = this.getUser()(parseInt(id));
+ 
   },
+  methods: {
+    ...mapGetters(["getUser"]),
+  },
+
 };
 </script>
 

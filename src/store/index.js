@@ -6,23 +6,23 @@ const url = "https://ti-react-test.herokuapp.com/users";
 export default createStore({
   state: {
     users: [],
-    user: [],
   },
   mutations: {
     setUsers(state, payload) {
       state.users = payload;
     },
-    // setUser(state, payload) {
-    //   state.user = payload;
-    // },
+    setUser(state, payload) {
+      state.user = payload;
+    },
+    
   },
   actions: {
     setUsers({ commit }) {
       axios(url).then((response) => commit("setUsers", response.data));
     },
-    // setUsers({ commit },id) {
-    //   axios(`${url}/${id}`).then((response) => commit("setUser", response.data));
-    // },
+    updateUser({commit}){
+      axios(`${url}/`)
+    }
   },
   modules: {},
   getters: {
@@ -33,8 +33,6 @@ export default createStore({
       let results = resultList.filter((item) => item.name.length > 1);
       return results;
     },
-    // getUser: (state) => (id) => {
-    //   return state.users.find((user) => user.id === id);
-    // },
+    getUser: (state) => (id) => state.users.find((user) => user.id === id),
   },
 });
