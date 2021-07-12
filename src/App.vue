@@ -18,6 +18,13 @@ export default {
 </script>
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap");
+:root {
+  --main-color: rgb(6, 66, 112);
+  --white: #fff;
+  --primary-light: rgb(3, 215, 252);
+  --success: green;
+  --grey: rgb(196, 196, 196);
+}
 * {
   padding: 0;
   margin: 0;
@@ -58,7 +65,6 @@ body {
 .loader {
   border: 6px solid rgb(6, 66, 112);
   border-top: 6px solid #fff;
-
   border-radius: 50%;
   margin: 30px;
   width: 50px;

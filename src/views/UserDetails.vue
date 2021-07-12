@@ -55,19 +55,19 @@ export default {
     margin-bottom: 10px;
 
     button {
-      color: #fff;
-      background-color: rgb(3, 215, 252);
+      color: var(--white);
+      background-color: var(--primary-light);
       font-size: 1.1rem;
       font-weight: bold;
       padding: 0.7rem 0.5rem;
-      border: 1px solid rgb(196, 196, 196);
+      border: 1px solid var(--grey);
       outline: none;
       transition: all 400ms ease;
 
       &:hover {
-        color: rgb(3, 215, 252);
-        background-color: #fff;
-        border: 1px solid rgb(3, 215, 252);
+        color: var(--primary-light);
+        background-color: var(--white);
+        border: 1px solid var(--primary-light);
       }
     }
   }

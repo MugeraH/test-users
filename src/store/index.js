@@ -28,6 +28,17 @@ export default createStore({
         commit("updateUser", response.data);
       });
     },
+    async filterUsers({ commit }, e) {
+      const limit = parseInt(
+        e.target.options[e.target.options.selectedIndex].innerText
+      );
+      let response = await axios.get(url);
+      let resultList = response.data;
+      let result = resultList.slice(0, limit);
+      console.log(result.length);
+
+      commit("setUsers", result);
+    },
   },
   modules: {},
   getters: {
