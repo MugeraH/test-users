@@ -8,25 +8,25 @@
         <p>Call me gravity, cause I am down o earth</p>
         <h5>Mugerahughes@gmail.com</h5>
       </div>
-      <div class="user-wrapper">
+      <div class="user-wrapper" @click="user">
         <h4>Hughes Mugera</h4>
         <h5 class="role">Software Devloper</h5>
         <p>Call me gravity, cause I am down o earth</p>
         <h5>Mugerahughes@gmail.com</h5>
       </div>
-      <div class="user-wrapper">
+      <div class="user-wrapper" @click="user">
         <h4>Hughes Mugera</h4>
         <h5 class="role">Software Devloper</h5>
         <p>Call me gravity, cause I am down o earth</p>
         <h5>Mugerahughes@gmail.com</h5>
       </div>
-      <div class="user-wrapper">
+      <div class="user-wrapper" @click="user">
         <h4>Hughes Mugera</h4>
         <h5 class="role">Software Devloper</h5>
         <p>Call me gravity, cause I am down o earth</p>
         <h5>Mugerahughes@gmail.com</h5>
       </div>
-      <div class="user-wrapper">
+      <div class="user-wrapper" @click="user">
         <h4>Hughes Mugera</h4>
         <h5 class="role">Software Devloper</h5>
         <p>Call me gravity, cause I am down o earth</p>
