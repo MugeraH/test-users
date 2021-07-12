@@ -38,15 +38,7 @@
 import { mapGetters, mapActions } from "vuex";
 export default {
   name: "UpdateUser",
-  data() {
-    return {
-      user: [],
-      name: "",
-      email: "",
-      occupation: "",
-      bio: "",
-    };
-  },
+
   computed: {
     user() {
       let id = this.$route.params.id;
@@ -58,8 +50,12 @@ export default {
   methods: {
     ...mapGetters(["getUser"]),
     ...mapActions(["updateUser"]),
+
     submitForm() {
+   
+
       this.updateUser(this.user);
+      this.$router.push({ path: `/user/${this.user.id}` });
     },
   },
 };

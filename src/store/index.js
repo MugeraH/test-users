@@ -23,9 +23,10 @@ export default createStore({
       axios.get(url).then((response) => commit("setUsers", response.data));
     },
     updateUser({ commit }, updatedUser) {
-      const response = axios.patch(`${url}/${updatedUser.id}`, updatedUser);
-      console.log(response.data);
-      commit("updateUser", response.data);
+      axios.patch(`${url}/${updatedUser.id}`, updatedUser).then((response) => {
+        console.log(response.data);
+        commit("updateUser", response.data);
+      });
     },
   },
   modules: {},
