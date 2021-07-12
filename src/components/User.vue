@@ -43,12 +43,12 @@ export default {
     padding: 5px 0;
   }
   .role {
-    color: rgb(6, 66, 112);
+    color: var(--main-color);
   }
 
   @media screen and (max-width: 500px) {
     width: 80%;
-    background-color: green;
+    background-color: var(--success);
   }
 }
 </style>

@@ -28,7 +28,7 @@ span {
 }
 select {
   padding: 6px;
-  border: rgb(6, 66, 112) 1px solid;
-  background: #fff;
+  border: 1px solid var(--main-color);
+  background: var(--white);
 }
 </style>

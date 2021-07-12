@@ -18,13 +18,13 @@ export default {};
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 1.7rem;
-  background: rgb(6, 66, 112);
-  color: rgb(255, 254, 254);
+  background: var(--main-color);
+  color: var( --white);
 
   a {
     text-decoration: none;
     font-size: 1.2rem;
-    color: #fff;
+    color:var( --white);
   }
 
   .logo {

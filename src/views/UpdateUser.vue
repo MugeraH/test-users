@@ -78,7 +78,7 @@ export default {
       label {
         font-size: 1.3rem;
         margin: 8px 0;
-        color: rgb(6, 66, 112);
+        color: var(--main-color);
       }
 
       input,
@@ -86,8 +86,8 @@ export default {
         outline: none;
         border: none;
         padding: 9px;
-        border-bottom: 1px solid rgb(6, 66, 112);
-        background: rgb(196, 196, 196);
+        border-bottom: 1px solid var(--main-color);
+        background: var(--grey);
       }
       input {
         height: 38px;
@@ -100,19 +100,19 @@ export default {
     }
 
     button {
-      color: #fff;
-      background-color: rgb(79, 165, 50);
+      color: var(--white);
+      background-color: var(--success);
       font-size: 1.05rem;
       font-weight: bold;
       margin: 1rem 0;
       padding: 0.7rem 0.5rem;
-      border: 1px solid #fff;
+      border: 1px solid var(--white);
       outline: none;
       transition: all 400ms ease;
       &:hover {
-        color: rgb(79, 165, 50);
-        background-color: #fff;
-        border: 1px solid rgb(79, 165, 50);
+        color: var(--success);
+        background-color: var(--white);
+        border: 1px solid var(--success);
       }
     }
   }
