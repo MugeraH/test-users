@@ -1,26 +1,10 @@
 <template>
-  <div class="container">
-    <div class="user-container">
-      <div class="title">
-        <h2 class="user-title">User</h2>
-        <button @click="updateUser(user.id)">
-          Update
-        </button>
-      </div>
-      <h2 class="username">{{ user.name }}</h2>
-
-      <span>Bio</span>
-      <p class="bio">
-        {{ user.bio }}
-      </p>
-      <span>Occupation</span>
-      <p class="occupation">
-        {{ user.occupation }}
-      </p>
-      <span>Email</span>
-      <p class="email">
-        {{ user.email }}
-      </p>
+  <div class="user-wrapper" v-for="(user, index) in users" :key="index">
+    <div @click="viewUserDetails(user.id)">
+      <h4>{{ user.name }}</h4>
+      <h5 class="role">{{ user.occupation }}</h5>
+      <p>{{ user.bio }}</p>
+      <h5>{{ user.email }}</h5>
     </div>
   </div>
 </template>
@@ -29,63 +13,40 @@
 import { mapGetters } from "vuex";
 export default {
   name: "User",
-  data() {
-    return {
-      user: [],
-    };
-  },
   computed: {
-    user() {
-      let id = this.$route.params.id;
-
-      return this.getUser()(parseInt(id));
+    users() {
+      return this.$store.getters.getUsers;
     },
   },
 
   methods: {
-    ...mapGetters(["getUser"]),
-    updateUser(id) {
-      this.$router.push({ path: `/update-user/${id}` });
+    viewUserDetails(id) {
+      this.$router.push({ path: `/user/${id}` });
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.user-container {
+.user-wrapper {
+  width: 350px;
   background: rgb(196, 196, 196);
-  .title {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-
-    button {
-      color: #fff;
-      background-color: rgb(3, 215, 252);
-      font-size: 1.1rem;
-      font-weight: bold;
-      padding: 0.7rem 0.5rem;
-      border: none;
-      outline: none;
-    }
+  border-radius: 7px;
+  padding: 14px;
+  cursor: pointer;
+  h4 {
+    font-size: 2rem;
   }
-  .username {
-    font-size: 1.5rem;
-    padding: 0.6rem 0;
-  }
-  span {
-    font-size: 1rem;
-    font-weight: bold;
-    margin: 0.7rem 0;
-    display: inline-block;
-  }
-
   p {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
+    padding: 10px 0;
   }
-  .email,
-  .occupation {
-    font-size: 1.1rem;
+  h5 {
+    font-size: 0.85rem;
+    padding: 5px 0;
+  }
+  .role {
+    color: rgb(6, 66, 112);
   }
 }
 </style>
