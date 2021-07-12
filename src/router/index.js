@@ -15,7 +15,7 @@ const routes = [
     component: User,
   },
   {
-    path: "/update-user",
+    path: "/update-user/:id",
     name: "UpdateUser",
     component: UpdateUser,
   },

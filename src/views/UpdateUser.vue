@@ -7,19 +7,24 @@
         <form action="">
           <div class="form-control">
             <label for="username">Username</label>
-            <input id="username" type="text" required />
+            <input v-model="user.name" id="username" type="text" required />
           </div>
           <div class="form-control">
             <label for="occupation">Occupation</label>
-            <input id="occupation" type="text" required />
+            <input
+              v-model="user.occupation"
+              id="occupation"
+              type="text"
+              required
+            />
           </div>
           <div class="form-control">
             <label for="email">Email</label>
-            <input id="email" type="email" required />
+            <input v-model="user.email" id="email" type="email" required />
           </div>
           <div class="form-control">
             <label for="Bio">Bio</label>
-            <textarea id="Bio" required></textarea>
+            <textarea v-model="user.bio" id="Bio" required></textarea>
           </div>
 
           <button type="submit">Update</button>
@@ -32,7 +37,22 @@
 <script>
 export default {
   name: "UpdateUser",
+  data() {
+    return {
+      user: [],
+      users: [],
+    };
+  },
+
   methods: {},
+  mounted() {
+    let id = this.$route.params.id;
+
+    this.users = this.$store.getters.getUsers;
+
+    let result = this.users.filter((user) => user.id == id);
+    this.user = result[0];
+  },
 };
 </script>
 
@@ -61,14 +81,16 @@ export default {
       input,
       textarea {
         outline: none;
-        font-size: 1.4rem;
+
         padding: 9px;
       }
       input {
         height: 38px;
+        font-size: 1.4rem;
       }
       textarea {
-        height: 80px;
+        height: 100px;
+        font-size: 1.2rem;
       }
     }
 

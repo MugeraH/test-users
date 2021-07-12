@@ -28,7 +28,6 @@ export default {
   },
   methods: {
     viewUserDetails(id) {
-      console.log("home");
       this.$router.push({ path: `/user/${id}` });
     },
   },

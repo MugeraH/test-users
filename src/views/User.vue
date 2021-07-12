@@ -3,33 +3,53 @@
     <div class="user-container">
       <div class="title">
         <h2 class="user-title">User</h2>
-        <button @click="this.$router.push({ path: '/update-user' })">
+        <button @click="this.$router.push({ path: `/update-user/${user.id}` })">
           Update
         </button>
       </div>
-      <h2 class="username">Hughes Mugera</h2>
+      <h2 class="username">{{ user.name }}</h2>
 
       <span>Bio</span>
       <p class="bio">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
-        numquam.
+        {{ user.bio }}
       </p>
       <span>Occupation</span>
       <p class="occupation">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
-        numquam.
+        {{ user.occupation }}
       </p>
       <span>Email</span>
       <p class="email">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
-        numquam.
+        {{ user.email }}
       </p>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  name: "User",
+  data() {
+    return {
+      user: [],
+      users: [],
+    };
+  },
+  // computed: {
+  //   user: [],
+  //   users: [],
+  // },
+  methods: {},
+  mounted() {
+    let id = this.$route.params.id;
+
+    this.users = this.$store.getters.getUsers;
+    
+
+    let result = this.users.filter((user) => user.id == id);
+    this.user = result[0];
+  
+  },
+};
 </script>
 
 <style lang="scss">
